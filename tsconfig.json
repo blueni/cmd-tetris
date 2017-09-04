@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"noResolve": true,
+		"target": "es6",
+		"module": "commonjs"
+	}
+}

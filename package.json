@@ -1,0 +1,16 @@
+{
+	"name": "cmd-tetris",
+	"version": "v1.0.0",
+	"main": "./src/index.ts",
+	"description": "terminal tetris game",
+	"author": "blueni",
+	"scripts": {
+		"game": "echo off&cls&node ./dist/index.js"
+	},
+	"devDependencies": {
+		"@types/node": "7.0.42",
+		"gulp": "^3.9.1",
+		"typescript": "^2.4.2",
+		"gulp-typescript": "^3.2.2"
+	}
+}
