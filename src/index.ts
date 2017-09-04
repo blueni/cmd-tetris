@@ -44,13 +44,15 @@ export default class CmdTetris{
             if( scene.hitCheck( nextCoors ) ){
                 clearInterval( this.timer )
                 if( !coors ){
-                    console.log( 'game is over...' )
+                    scene.rl.write( 'game is over...' )
+                    process.exit()
                     return 
                 }
                 scene.putCoor( block.coors )
                 this.next()
                 return
             }else{
+                scene.clearCoors( block.coors )
                 coors = nextCoors
                 block.coors = coors
                 scene.renderCoors( block.coors )
@@ -77,6 +79,8 @@ export default class CmdTetris{
                     break
 
                 case 'up':    // rotate
+                    readline.moveCursor( output, 0, -1 )
+                    readline.clearScreenDown( output )
                     coors = block.blockOperate( DIRECTION.UP )
                     break
                     

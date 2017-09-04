@@ -25,6 +25,8 @@ export default class SceneRender extends Scene{
         output.on( 'resize', () => {
             if( output.rows * 2 < this.lines || output.columns * 2 < this.columns ){
                 process.exit( 0 )
+            }else{
+                this.render()
             }
         })
     }
@@ -76,7 +78,6 @@ export default class SceneRender extends Scene{
     }
 
     renderCoors( coors: number[][], str: string = '囗' ): void{
-        this.render()
         let rl = this.rl
         let output = rl.output
         let x = ( output.columns - this.columns * 2 ) / 2 | 0
@@ -87,6 +88,7 @@ export default class SceneRender extends Scene{
             readline.cursorTo( output, x + coor[0] * 2, coor[1] + 1 )
             output.write( str )
         })
+        readline.cursorTo( output, 0, this.lines + 3 )
     }
 
     clearCoors( coors: number[][] ): void{
